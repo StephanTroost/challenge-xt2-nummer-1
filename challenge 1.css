@@ -1,0 +1,36 @@
+body {background-image: linear-gradient(to right bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);}
+
+.grid1 {
+    
+    display:grid; 
+    grid-template-columns: 33% 33% 33%;
+    grid-gap: 1em;
+    margin: 1em;
+}
+
+.grid1 > div {
+    
+    
+    background-color: white ;
+}
+
+@media only screen and (min-width:375px) {
+     .grid1 {
+         display:grid;
+         grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (min-width:1280px) {
+    .grid1 {
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+   }
+}
+
+@media only screen and (min-width:1920px) {
+    .grid1 {
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+   }
+}

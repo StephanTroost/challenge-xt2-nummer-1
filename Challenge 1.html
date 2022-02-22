@@ -1,0 +1,110 @@
+;<!DOCTYPE html>
+
+<html>
+	<head>
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+		<title> Huts </title>
+		<link rel="stylesheet" text="text/css" href="challenge 1.css"> 
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        google.charts.load('current', {packages: ['corechart', 'line']});
+        google.charts.setOnLoadCallback(drawBackgroundColor);
+        google.charts.load('current', {packages: ['corechart', 'bar']});
+        google.charts.setOnLoadCallback(drawBarColors);
+
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Werk',     11],
+          ['Eten',      2],
+          ['TV kijken',  2],
+          ['Aliens zoeken', 2],
+          ['Slapen',    7]
+        ]);
+
+        
+        var options = {
+          title: 'bemannings activiteiten',
+          colors:  ['#051937', '#004d7a', '#008793', '#00bf72', '#a8eb12']
+        };
+    
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+
+      function drawBackgroundColor() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Aliens');
+
+      data.addRows([
+        [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
+        [6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
+        [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
+        [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
+      
+      ]);
+
+      var options = {
+        hAxis: {
+          title: 'Tijd'
+        },
+        vAxis: {
+          title: 'Aantal'
+        },
+        
+        
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+
+    function drawBarColors() {
+      var data = google.visualization.arrayToDataTable([
+        ['City', 'gespotte aliens'],
+        ['Samantha', 800],
+        ['Delano', 370],
+        ['Lange Frans', 1000],
+        ['Kees', 156],
+        ['Luke', 15]
+      ]);
+
+      var options = {
+        title: 'Aliens gespot door...',
+        chartArea: {width: '50%'},
+        colors: ['#00bf72'],
+        hAxis: {
+          title: 'totaal aantal aliens',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'persoon'
+        }
+      };
+      var chart = new google.visualization.BarChart(document.getElementById('chart_bar'));
+      chart.draw(data, options);
+    }
+
+    </script>
+		
+	</head>
+</html>
+
+<body>
+    <div class="grid1">
+        
+            <div id="piechart"></div> 
+        
+            <div id="chart_div"></div>
+        
+            <div id="chart_bar"></div>
+    </div>
+</body>
